@@ -1,0 +1,23 @@
+
+Q1: Find monthly sales and sort it by desc order.
+
+CREATE TABLE products(  
+    Order_date date,
+    Sales INT
+    );
+
+INSERT INTO products(Order_date, Sales) 
+VALUES 
+('2021-01-01',20), ('2021-01-02',32), ('2021-02-08',45), ('2021-02-04',31),
+('2021-03-21',33), ('2021-03-06',19), ('2021-04-07',21), ('2021-04-22',10)
+
+SELECT * FROM products
+
+SELECT YEAR(Order_date) AS Years, MONTH(Order_date) AS Months, SUM(Sales) AS TotalSales
+FROM products
+GROUP BY YEAR(Order_date),MONTH(Order_date)
+ORDER BY TotalSales DESC;
+
+
+
+
